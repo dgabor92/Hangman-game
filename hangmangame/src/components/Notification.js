@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Notification = () => {
-    return (
-        /* <!-- Notification --> */
-    <div class="notification-container" id="notification-container">
+const Notification = ({ showNotification }) => {
+  return (
+    /* <!-- Notification --> */
+    <div className={`notification-container ${showNotification ? "show" : ""}`}>
       <p>You have already entered this letter</p>
     </div>
-    )
-}
+  );
+};
 
-export default Notification
+export default Notification;

@@ -26,7 +26,7 @@ function App() {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
         const letter = key.toLowerCase();
-
+        //send a notification if you use one correct word more then once
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
             setCorrectLetters((currentLetters) => [...currentLetters, letter]);
@@ -34,6 +34,7 @@ function App() {
             show(setShowNotification);
           }
         } else {
+          // send a notification if you use one incorrect word more then once
           if (!wrongLetters.includes(letter)) {
             setwrongLetters((wrongLetters) => [...wrongLetters, letter]);
           } else {
@@ -48,6 +49,7 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]); // if we dont add anything this would get called every single time when the app renders
 
+  // set up the playAgain button
   function playAgain() {
     setPlayable(true);
 

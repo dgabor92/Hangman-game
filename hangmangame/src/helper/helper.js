@@ -1,3 +1,4 @@
+// pop up the notification for the user
 export function showNotification(setter) {
   setter(true);
   setTimeout(() => {
@@ -5,19 +6,18 @@ export function showNotification(setter) {
   }, 2000);
 }
 
-
 export function checkWin(correct, wrong, word) {
-    let status = "win";
+  let status = "win";
 
-    // check for win
-    word.split("").forEach(letter => {
-        if (!correct.includes(letter)) {
-            status = "";
-        }
-    });
+  // check for win
+  word.split("").forEach((letter) => {
+    if (!correct.includes(letter)) {
+      status = "";
+    }
+  });
 
-    // check for lose
-    if (wrong.length == 6) status = "lose";
+  // check for lose
+  if (wrong.length == 6) status = "lose";
 
-    return status;
+  return status;
 }

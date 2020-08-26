@@ -1,6 +1,6 @@
 import React from "react"; //rcfe for function component
-
-const Word =({ selectedWord, correctLetters }) => {
+// display the words line what the computer choose
+const Word = ({ selectedWord, correctLetters }) => {
   return (
     <div className="word">
       {selectedWord.split("").map((letter, i) => {
@@ -12,6 +12,6 @@ const Word =({ selectedWord, correctLetters }) => {
       })}
     </div>
   );
-}
+};
 
 export default Word;

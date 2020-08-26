@@ -48,6 +48,17 @@ function App() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]); // if we dont add anything this would get called every single time when the app renders
 
+  function playAgain() {
+    setPlayable(true);
+
+    // Empty Arrays
+    setCorrectLetters([]);
+    setwrongLetters([]);
+
+    const random = Math.floor(Math.random() * words.length);
+    selectedWord = words[random];
+  }
+
   return (
     <>
       <Header />
@@ -56,7 +67,13 @@ function App() {
         <WrongLetters wrongLetters={wrongLetters} />
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
-      <Popup />
+      <Popup
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        selectedWord={selectedWord}
+        setPlayable={setPlayable}
+        playAgain={playAgain}
+      />
       <Notification showNotification={showNotification} />
     </>
   );
